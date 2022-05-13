@@ -34,3 +34,14 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+.idea/*
+
+/log/development.log
+/public/system/
+/tmp/
+
+/public/assets/
+/bin/puma.sh
+
+Gemfile.lock
