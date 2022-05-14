@@ -1,0 +1,54 @@
+<div class="jumbotron">
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+    <h1>Show Url</h1>
+    <h3>
+      <%= button_to 'Edit URL', edit_url_path(@url), :method => :get,  :class => "btn btn-primary btn-lg"%>
+      <%= button_to 'Back to Urls', urls_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+    </h3>
+  </div>
+</div>
+<div class="container">
+  <div class="headRow">
+    <h2>
+      <strong>Url Id : </strong>
+      <%= @url.id %>
+    </h2>
+  </div>
+  <div class="headRow">
+    <h2>
+      <strong>Original url:</strong>
+      <%= @url.original_url %>
+    </h2>
+  </div>
+  <div class="headRow">
+    <h2>
+      <strong>Shorten url:</strong>
+      <%= @url.shorten_url %>
+    </h2>
+  </div>
+  <div class="headRow">
+    <h2>
+      <strong>Often shorten:</strong>
+      <%= @url.often_shorten %>
+    </h2>
+  </div>
+  <div class="headRow">
+    <h2>
+      <strong>Often access:</strong>
+      <%= @url.often_access %>
+    </h2>
+  </div>
+  <div class="headRow">
+    <h2>
+      <strong>Is public:</strong>
+      <%= @url.is_public %>
+    </h2>
+  </div>
+  <div class="headRow">
+    <h2>
+      <strong>Status:</strong>
+      <%= @url.status %>
+    </h2>
+  </div>
+</div>

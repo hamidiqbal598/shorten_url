@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+      <% if params[:role].present? %>
+        <h1 class="text-center">Admin Log in</h1>
+        <h5> I created one dummy admin along with database </h5>
+        <h5> Please use these credentials for Admin Login : </h5>
+        <h5> (Email: 'admin@admin.com' and Password: '12345678')</h5>
+      <% else %>
+        <h1 class="text-center">User Log in</h1>
+      <% end %>
+
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, placeholder: 'Email Address', class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control' %>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="form-check">
+            <label class="form-check-label">
+              <%= f.check_box :remember_me, class: "form-check-input" %>
+              Remember me
+            </label>
+          </div>
+        <% end -%>
+
+        <div class="form-group">
+          <%= f.submit "Log in", class: "btn btn-primary btn-block btn-lg" %>
+        </div>
+      <% end %>
+
+      <% unless params[:role].present? %>
+        <div class="text-center">
+          <%= render "devise/shared/links" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

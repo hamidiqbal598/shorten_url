@@ -1,0 +1,91 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>URL Shortener</h1>
+  </div>
+  <div class="container">
+    <div class="">
+      <%= form_tag create_shorten_urls_path, method: :get do %>
+        <div class="row">
+          <div class="col-lg-12">
+            <label>Fill the Field with desired URL </label>
+            <%= text_field_tag :original_url, params[:original_url], class: 'form-control chosen-select'%>
+            <h5>(PS: Proper http and https tags)</h5>
+          </div>
+        </div>
+        <div style="justify-content: center" class="row">
+          <br>
+          <div class="col-lg-12">
+            <%= submit_tag 'Apply', class: 'btn btn-primary' %>
+            <%= link_to 'Reset', create_shorten_urls_path, class: 'btn btn-primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="users_area">
+  <% if user_signed_in? %>
+      <h4>Email : <%= current_user.email %> </h4>
+      <h5>Role : <%= current_user.role %> </h5>
+    <% else %>
+      <h4>Publicly Created Url's </h4>
+  <% end %>
+  </div>
+</div>
+
+<% unless @urls.empty? %>
+  <div class="container">
+    <table class="styled-table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Original Url</th>
+        <th>Shorten Url</th>
+        <th>often_shorten</th>
+        <th>Often Access</th>
+        <th>Status</th>
+        <th>Last Access At</th>
+        <th>Created At</th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @urls.each do |url| %>
+          <tr class="active-row">
+            <td><%= url.id %></td>
+            <td><%= link_to url.original_url, url_for(url.original_url) %></td>
+            <% complete_url = "#{request.base_url}/#{url.shorten_url}/" %>
+            <td><%= link_to complete_url, url_for(complete_url) %></td>
+            <td><%= url.often_shorten %></td>
+            <td><%= url.often_access %></td>
+            <td><%= url.status %></td>
+            <td><%= url.last_access_at %></td>
+            <td><%= url.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <%= will_paginate @urls %>
+    </div>
+  </div>
+
+<% else %>
+  <br>
+  <div class="container">
+    <div class="users_area">
+      <h1>No URL Available </h1>
+      <div class="card">
+        <% if @error.present? %>
+          <h2>URL Error <%= @error %> </h2>
+        <% end %>
+      </div>
+    </div>
+    <br>
+  </div>
+
+<% end %>
+
+
+

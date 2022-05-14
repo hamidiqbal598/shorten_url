@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_13_125159) do
+ActiveRecord::Schema.define(version: 2022_05_13_140443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "urls", force: :cascade do |t|
+    t.string "original_url"
+    t.string "shorten_url"
+    t.integer "often_shorten", default: 1
+    t.integer "often_access", default: 0
+    t.boolean "is_public", default: true
+    t.boolean "status", default: true
+    t.integer "user_id"
+    t.datetime "last_access_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["is_public"], name: "index_urls_on_is_public"
+    t.index ["last_access_at"], name: "index_urls_on_last_access_at"
+    t.index ["often_access"], name: "index_urls_on_often_access"
+    t.index ["often_shorten"], name: "index_urls_on_often_shorten"
+    t.index ["original_url"], name: "index_urls_on_original_url"
+    t.index ["shorten_url"], name: "index_urls_on_shorten_url"
+    t.index ["status"], name: "index_urls_on_status"
+    t.index ["user_id"], name: "index_urls_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

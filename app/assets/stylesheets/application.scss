@@ -25,7 +25,7 @@ a:visited {
   color: $black;
 }
 .jumbotron {
-  background: #0048CD;
+  background: #4b7070;
   color: $white;
   text-align: center;
   p {
@@ -40,6 +40,7 @@ a:visited {
   color: $white;
   border-color: $white;
   margin-bottom: 5px;
+  background: #009879;
 }
 .btn-sm {
   background-color: $white;
@@ -87,42 +88,6 @@ caption {
   display: table-column;
   width: 200px;
   background-color: #ccc;
-}
-.divTable
-{
-  display: table;
-  width:auto;
-  background-color:#ccc;
-  border:1px solid  #666666;
-  border-spacing:1px;/*cellspacing:poor IE support for  this*/
-  /* border-collapse:separate;*/
-}
-
-
-.headRow
-{
-  border:10px solid  #666666;
-  font-size: 16px;
-  font-weight: bold;
-
-}
-.divRow
-{
-  border:5px solid  black;
-  display:table-row;
-  width:auto;
-  border-bottom: 1px solid black;
-  padding-bottom: 5px;
-}
-
-.divCell
-{
-  text-align: left;
-  border-collapse: collapse;
-  float:left;/*fix for  buggy browsers*/
-  display:table-column;
-  width:210px;
-  background-color:#ccc;
 }
 
 html {
@@ -178,14 +143,7 @@ html {
 }
 
 .button:hover {
-  background-color: #555;
-}
-
-.center {
-  background: #0048CD;
-  color: $white;
-  border: 5px solid #555;
-  text-align: center;
+  background-color: #009879;
 }
 
 .row_picture {
@@ -203,12 +161,91 @@ html {
   width: 50%;
 }
 
-.marvel_story
+.styled-table {
+  width:auto;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.divTable {
+
+  //table
+
+  display: table;
+  width:auto;
+  background-color:#ccc;
+  border:1px solid  #666666;
+  border-spacing:1px;/*cellspacing:poor IE support for  this*/
+  /* border-collapse:separate;*/
+
+}
+.headRow {
+
+  // tr
+  border:10px solid  #666666;
+  font-size: 16px;
+  font-weight: bold;
+}
+.divCell {
+
+  //th
+
+  text-align: left;
+  border-collapse: collapse;
+  float:left;/*fix for  buggy browsers*/
+  display:table-column;
+  width:210px;
+  background-color:#ccc;
+}
+.divRow {
+
+  // tr
+
+  border:5px solid  black;
+  display:table-row;
+  width:auto;
+  border-bottom: 1px solid black;
+
+  padding: 12px 15px;
+}
+
+.users_area
 {
   width:auto;
-  background-color:#95ade6;
+  background-color:#65ab9d;
   align-content: center;
   border:1px solid  #666666;
   text-align: center;
   /* border-collapse:separate;*/
+}
+
+.custom-nav
+{
+  background-color:#65ab9d;
 }

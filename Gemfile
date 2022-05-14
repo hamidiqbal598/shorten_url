@@ -14,6 +14,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'image_processing', '~> 1.2'
 
 gem 'devise'
+gem 'devise-i18n'
 gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
