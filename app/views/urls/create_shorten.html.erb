@@ -54,7 +54,7 @@
         <% @urls.each do |url| %>
           <tr class="active-row">
             <td><%= url.id %></td>
-            <td><%= link_to url.original_url, url_for(url.original_url) %></td>
+            <td><%= link_to truncate(url.original_url, :length => 50), url_for(url.original_url) %></td>
             <% complete_url = "#{request.base_url}/#{url.shorten_url}/" %>
             <td><%= link_to complete_url, url_for(complete_url) %></td>
             <td><%= url.often_shorten %></td>

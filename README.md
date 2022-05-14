@@ -19,7 +19,7 @@ Solution:
 
 * For Test Cases I used (Rspec)
 * How to run the test suite
-    * CMD (bundle exec rspec spec)
+    * CMD (docker-compose run --rm web bundle exec rspec spec)
 
 * Running instructions:
     * CMD (rails s)
@@ -135,6 +135,8 @@ Here Applications has two models according to the following database scheme.
 ### IN Total 24 Test Cases are implemented.
 
     - For Unit Test Cases I used Rspec Library.
+    - With Docker CMD: docker-compose run --rm web bundle exec rspec spec
+    - Without Docker Command: bundle exec rspec spec
 
 ![test_cases](public/test_cases.png)
 

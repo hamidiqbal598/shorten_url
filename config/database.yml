@@ -19,9 +19,9 @@ default: &default
   encoding: unicode
   # If you are not using docker instance then you don't need these below 3 lines
   # ----------------------------------------------------------------------------
-#  host: database
-#  username: postgres
-#  password: password
+  host: database
+  username: postgres
+  password: password
   # ----------------------------------------------------------------------------
   # Please Comment these above three lines including host, username and password
 
