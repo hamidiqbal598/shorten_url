@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>New URL</h1>
+    <h3>
+      <%= button_to 'Back to Urls', urls_path, :method => :get,  :class => "btn btn-primary btn-lg"%>
+    </h3>
+  </div>
+</div>
+<div class="container">
+  <div style="align-content: center">
+    <%= render 'form', url: @url %>
+  </div>
+</div>
