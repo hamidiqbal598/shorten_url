@@ -44,7 +44,13 @@ docker compose up
 ##### If you wish to run without docker
 ##### Then just uncomment 3 lines in database.yml
 ##### Which includes host, username, and password.
-
+##### Lastly, Run these command on Terminal:
+```
+    Bundle install
+    Rake db:create
+    Rake db:setup
+    Rails s
+```
 
 
 ## Overview
