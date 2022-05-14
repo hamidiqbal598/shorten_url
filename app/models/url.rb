@@ -9,6 +9,7 @@ class Url < ApplicationRecord
   scope :search_by_user, -> (user_id) { where(user_id: user_id) }
   scope :search_public_urls, -> (is_public) { where(is_public: is_public) }
   scope :fetch_with_shorten_url, -> (shorten_url) { where(shorten_url: shorten_url) }
+  scope :latest_on_top, -> { order(id: :desc) }
 
   validates :original_url, presence: true, format: URI::regexp(%w[http https])
   validates_length_of :original_url, within: 3..255, on: :create, message: "URL is too big"
@@ -28,7 +29,7 @@ class Url < ApplicationRecord
     urls = urls.search_by_user(params[:user_id]) unless params[:user_id].blank?
     urls = urls.search_public_urls(params[:is_public]) unless params[:is_public].blank?
     urls = urls.search_by_id(params[:url_id]) unless params[:url_id].blank?
-    urls
+    urls.latest_on_top
   end
 
   def self.making_shorten_url(params, current_user = nil)
@@ -53,9 +54,9 @@ class Url < ApplicationRecord
     end
     urls = Url.all.page(params[:page])
     if current_user
-      urls = urls.search_by_user(current_user.id)
+      urls = urls.latest_on_top.search_by_user(current_user.id)
     else
-      urls = urls.search_public_urls(true)
+      urls = urls.latest_on_top.search_public_urls(true)
     end
     urls
   end
